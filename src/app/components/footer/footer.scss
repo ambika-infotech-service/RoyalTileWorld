@@ -1,74 +1,56 @@
-$primary:        #c8a96e;
-$primary-dark:   #a07840;
-$primary-light:  #f0ddb0;
-$secondary:      #1a1a2e;
-$secondary-mid:  #2d2d44;
-$bg-dark:        #12121e;
-$white:          #ffffff;
-$text-light:     #f5f5f5;
-$font-heading:   'Playfair Display', Georgia, serif;
-$font-body:      'Inter', 'Segoe UI', sans-serif;
-$transition-base: 0.3s ease;
+@use 'theme' as *;
 
 .footer {
   font-family: $font-body;
 }
 
-// Main footer area
 .footer-main {
   background: $secondary;
-  padding: 5rem 0 3rem;
+  padding: $space-5xl 0 $space-2xl;
 }
 
-// Brand
 .footer-brand {
   .brand-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.65rem;
+    gap: $space-sm;
     text-decoration: none;
-    margin-bottom: 1.25rem;
+    margin-bottom: $space-lg;
 
-    .brand-icon {
-      font-size: 2rem;
-      color: $primary;
-      line-height: 1;
-    }
-
+    .brand-icon { font-size: 2rem; color: $primary; line-height: 1; }
     .brand-name {
       font-family: $font-heading;
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: $white;
+      font-size: $font-size-xl;
+      font-weight: $font-weight-bold;
+      color: $text-white;
     }
   }
 }
 
 .brand-description {
-  font-size: 0.9rem;
-  color: rgba($white, 0.6);
-  line-height: 1.8;
+  font-size: $font-size-sm;
+  color: rgba($text-white, 0.58);
+  line-height: $line-height-relaxed;
   max-width: 340px;
-  margin-bottom: 1.75rem;
+  margin-bottom: $space-lg;
 }
 
-// Social Links
 .social-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem;
+  gap: $space-sm;
 }
 
 .social-link {
   width: 40px;
   height: 40px;
-  background: rgba($white, 0.06);
-  border: 1px solid rgba($white, 0.1);
-  border-radius: 10px;
+  background: rgba($text-white, 0.06);
+  border: 1px solid rgba($text-white, 0.1);
+  border-radius: $radius-md;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba($white, 0.7);
+  color: rgba($text-white, 0.65);
   font-size: 1.1rem;
   text-decoration: none;
   transition: background $transition-base, color $transition-base, border-color $transition-base, transform $transition-base;
@@ -76,33 +58,28 @@ $transition-base: 0.3s ease;
   &:hover {
     background: $primary;
     border-color: $primary;
-    color: $white;
+    color: $text-white;
     transform: translateY(-3px);
   }
 
-  &:focus-visible {
-    outline: 2px solid $primary;
-    outline-offset: 2px;
-  }
+  @include focus-ring;
 
-  // Brand colors on hover
-  &[href*="facebook"]:hover   { background: #1877f2; border-color: #1877f2; }
-  &[href*="instagram"]:hover  { background: #e1306c; border-color: #e1306c; }
-  &[href*="x.com"]:hover      { background: #000; border-color: #555; }
-  &[href*="youtube"]:hover    { background: #ff0000; border-color: #ff0000; }
-  &[href*="pinterest"]:hover  { background: #e60023; border-color: #e60023; }
-  &[href*="whatsapp"]:hover   { background: #25d366; border-color: #25d366; }
+  &[href*="facebook"]:hover  { background: #1877f2; border-color: #1877f2; }
+  &[href*="instagram"]:hover { background: #e1306c; border-color: #e1306c; }
+  &[href*="x.com"]:hover     { background: #000;    border-color: #555; }
+  &[href*="youtube"]:hover   { background: #ff0000; border-color: #ff0000; }
+  &[href*="pinterest"]:hover { background: #e60023; border-color: #e60023; }
+  &[href*="whatsapp"]:hover  { background: #25d366; border-color: #25d366; }
 }
 
-// Footer Headings
 .footer-heading {
   font-family: $font-heading;
-  font-size: 1rem;
-  font-weight: 700;
-  color: $white;
-  margin-bottom: 1.25rem;
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  color: $text-white;
+  margin-bottom: $space-lg;
   position: relative;
-  padding-bottom: 0.75rem;
+  padding-bottom: $space-sm;
 
   &::after {
     content: '';
@@ -111,111 +88,88 @@ $transition-base: 0.3s ease;
     left: 0;
     width: 30px;
     height: 2px;
-    background: linear-gradient(90deg, $primary, $primary-dark);
+    background: $gradient-gold-div;
     border-radius: 1px;
   }
 }
 
-// Footer Links
 .footer-links {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: $space-sm;
 }
 
 .footer-link {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  font-size: 0.88rem;
-  color: rgba($white, 0.6);
+  font-size: $font-size-sm;
+  color: rgba($text-white, 0.58);
   text-decoration: none;
   transition: color $transition-base, gap $transition-base;
 
-  i {
-    font-size: 0.7rem;
-    color: $primary;
-    transition: transform $transition-base;
-  }
+  i { font-size: 0.7rem; color: $primary; transition: transform $transition-base; }
 
   &:hover {
     color: $primary-light;
-    gap: 0.65rem;
+    gap: $space-sm;
     i { transform: translateX(2px); }
   }
 
-  &:focus-visible {
-    outline: 2px solid $primary;
-    border-radius: 3px;
-    outline-offset: 2px;
-  }
+  @include focus-ring;
 }
 
-// Contact Info
-.footer-contact {
-  font-style: normal;
-}
+.footer-contact { font-style: normal; }
 
 .contact-item {
   display: flex;
   align-items: flex-start;
-  gap: 0.75rem;
-  font-size: 0.88rem;
-  color: rgba($white, 0.6);
-  margin-bottom: 0.85rem;
-  line-height: 1.65;
+  gap: $space-sm;
+  font-size: $font-size-sm;
+  color: rgba($text-white, 0.58);
+  margin-bottom: $space-sm;
+  line-height: $line-height-base;
 
-  i {
-    color: $primary;
-    font-size: 1rem;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
+  i { color: $primary; font-size: $font-size-base; flex-shrink: 0; margin-top: 2px; }
 }
 
 .footer-contact-link {
-  color: rgba($white, 0.6);
+  color: rgba($text-white, 0.58);
   text-decoration: none;
   transition: color $transition-base;
   &:hover { color: $primary-light; }
-  &:focus-visible { outline: 2px solid $primary; border-radius: 3px; outline-offset: 2px; }
+  @include focus-ring;
 }
 
-// Bottom bar
 .footer-bottom {
   background: $bg-dark;
   padding: 1.25rem 0;
-  border-top: 1px solid rgba($white, 0.04);
+  border-top: 1px solid rgba($text-white, 0.04);
 }
 
 .footer-bottom-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: $space-md;
   flex-wrap: wrap;
 }
 
-.copyright {
-  font-size: 0.82rem;
-  color: rgba($white, 0.45);
-  margin: 0;
-}
-
+.copyright,
 .attribution {
-  font-size: 0.82rem;
-  color: rgba($white, 0.45);
+  font-size: $font-size-xs;
+  color: rgba($text-white, 0.42);
   margin: 0;
 }
 
 .attribution-link {
   color: $primary;
-  font-weight: 600;
+  font-weight: $font-weight-semi;
   text-decoration: none;
   transition: color $transition-base;
   &:hover { color: $primary-light; text-decoration: underline; }
-  &:focus-visible { outline: 2px solid $primary; border-radius: 3px; outline-offset: 2px; }
+  @include focus-ring;
 }

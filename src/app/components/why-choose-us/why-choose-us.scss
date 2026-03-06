@@ -1,61 +1,44 @@
-$primary:        #c8a96e;
-$primary-dark:   #a07840;
-$primary-light:  #f0ddb0;
-$secondary:      #1a1a2e;
-$secondary-mid:  #2d2d44;
-$text-dark:      #1a1a2e;
-$text-muted:     #6b7280;
-$white:          #ffffff;
-$bg-light:       #faf8f5;
-$font-heading:   'Playfair Display', Georgia, serif;
-$transition-base: 0.3s ease;
+@use 'theme' as *;
 
 .why-section {
-  padding: 6rem 0;
+  @include section-padding;
   background: $bg-light;
 }
 
 .section-eyebrow {
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 3px;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semi;
+  letter-spacing: $letter-spacing-caps;
   text-transform: uppercase;
   color: $primary;
-  margin-bottom: 0.75rem;
+  margin-bottom: $space-sm;
 }
 
 .section-title {
   font-family: $font-heading;
   font-size: clamp(1.8rem, 4vw, 2.8rem);
-  color: $text-dark;
-  font-weight: 700;
-  line-height: 1.22;
-  margin-bottom: 0.5rem;
+  color: $text-heading;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  margin-bottom: $space-xs;
 }
 
 .section-subtitle {
-  font-size: 1rem;
+  font-size: $font-size-base;
   color: $text-muted;
   max-width: 560px;
   margin: 0 auto;
-  line-height: 1.75;
+  line-height: $line-height-relaxed;
 }
 
-.gold-divider {
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(90deg, $primary, $primary-dark);
-  border-radius: 2px;
-  margin: 1rem auto;
-}
+.gold-divider { @include gold-divider; }
 
-// Feature Card
 .feature-card {
-  background: $white;
-  border-radius: 1rem;
-  padding: 2rem 1.75rem;
+  background: $bg-body;
+  border-radius: $radius-lg;
+  padding: $space-xl $space-lg;
   height: 100%;
-  box-shadow: 0 2px 16px rgba($secondary, 0.07);
+  box-shadow: $shadow-sm;
   border: 1px solid rgba($primary, 0.08);
   transition: transform $transition-base, box-shadow $transition-base, border-color $transition-base;
   position: relative;
@@ -68,14 +51,14 @@ $transition-base: 0.3s ease;
     left: 0;
     width: 4px;
     height: 0;
-    background: linear-gradient(180deg, $primary, $primary-dark);
+    background: $gradient-gold;
     border-radius: 0 0 4px 4px;
     transition: height 0.4s ease;
   }
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 16px 40px rgba($secondary, 0.14);
+    box-shadow: $shadow-lg;
     border-color: rgba($primary, 0.2);
     &::before { height: 100%; }
   }
@@ -84,96 +67,67 @@ $transition-base: 0.3s ease;
 .feature-icon {
   width: 56px;
   height: 56px;
-  background: linear-gradient(135deg, rgba($primary, 0.12), rgba($primary, 0.05));
-  border-radius: 14px;
+  background: $primary-muted;
+  border-radius: $radius-md;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.25rem;
+  margin-bottom: $space-lg;
   transition: background $transition-base, transform $transition-base;
 
-  i {
-    font-size: 1.6rem;
-    color: $primary;
-  }
+  i { font-size: 1.6rem; color: $primary; }
 
   .feature-card:hover & {
-    background: linear-gradient(135deg, $primary, $primary-dark);
+    background: $gradient-gold;
     transform: rotate(-4deg) scale(1.05);
-    i { color: $white; }
+    i { color: $text-white; }
   }
 }
 
 .feature-title {
   font-family: $font-heading;
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: $text-dark;
-  margin-bottom: 0.6rem;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $text-heading;
+  margin-bottom: $space-sm;
 }
 
 .feature-description {
-  font-size: 0.88rem;
+  font-size: $font-size-sm;
   color: $text-muted;
-  line-height: 1.8;
+  line-height: $line-height-relaxed;
   margin: 0;
 }
 
-// CTA Banner
 .cta-banner {
-  background: linear-gradient(135deg, $secondary, $secondary-mid);
-  border-radius: 1.25rem;
-  padding: 2.5rem 3rem;
-  box-shadow: 0 20px 50px rgba($secondary, 0.3);
+  background: $gradient-dark;
+  border-radius: $radius-xl;
+  padding: $space-2xl;
+  box-shadow: $shadow-xl;
 
-  @media (max-width: 576px) {
-    padding: 2rem 1.5rem;
-  }
+  @media (max-width: 576px) { padding: $space-xl $space-lg; }
 }
 
 .cta-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
+  gap: $space-xl;
   flex-wrap: wrap;
 }
 
 .cta-title {
   font-family: $font-heading;
   font-size: clamp(1.3rem, 3vw, 1.75rem);
-  color: $white;
-  font-weight: 700;
+  color: $text-white;
+  font-weight: $font-weight-bold;
   margin-bottom: 0.35rem;
 }
 
 .cta-subtitle {
-  color: rgba($white, 0.65);
-  font-size: 0.92rem;
+  color: rgba($text-white, 0.6);
+  font-size: $font-size-sm;
   margin: 0;
 }
 
-.btn-gold-light {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: linear-gradient(135deg, $primary, $primary-dark);
-  color: $white;
-  padding: 0.8rem 2rem;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  white-space: nowrap;
-  transition: transform $transition-base, box-shadow $transition-base;
-  flex-shrink: 0;
-
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 28px rgba($primary, 0.4);
-    color: $white;
-  }
-  &:focus-visible {
-    outline: 3px solid $primary-light;
-    outline-offset: 2px;
-  }
-}
+.btn-gold-light { @include btn-gold; flex-shrink: 0; white-space: nowrap; }

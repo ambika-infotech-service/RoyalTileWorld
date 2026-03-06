@@ -1,54 +1,34 @@
-// ─── Theme Variables ──────────────────────────────────────────────────────────
-$primary:        #c8a96e;   // warm gold
-$primary-dark:   #a07840;   // deeper gold
-$primary-light:  #f0ddb0;   // pale gold tint
-$secondary:      #1a1a2e;   // deep navy
-$secondary-mid:  #2d2d44;   // mid-dark navy
-$accent:         #e8e0d0;   // warm off-white / cream
-$text-dark:      #1a1a2e;
-$text-muted:     #6b7280;
-$text-light:     #f5f5f5;
-$white:          #ffffff;
-$bg-light:       #faf8f5;   // warm near-white background
-$bg-dark:        #12121e;   // very dark background
-
-// Typography
-$font-heading:   'Playfair Display', Georgia, serif;
-$font-body:      'Inter', 'Segoe UI', sans-serif;
-
-// Spacing
-$section-py:     5rem;
-$border-radius-lg: 1rem;
-
-// Transition
-$transition-base: 0.3s ease;
+// ─── Global Theme Entry ───────────────────────────────────────────────────────
+// All design tokens live in src/styles/_variables.scss
+// Mixins live in src/styles/_mixins.scss
+@use 'theme' as *;
 
 // ─── Google Fonts ─────────────────────────────────────────────────────────────
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
 
-// ─── Global Base Styles ───────────────────────────────────────────────────────
+// ─── Base Reset & Defaults ────────────────────────────────────────────────────
 *,
 *::before,
-*::after {
-  box-sizing: border-box;
-}
+*::after { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   font-family: $font-body;
-  color: $text-dark;
-  background-color: $white;
-  line-height: 1.6;
+  font-size: $font-size-base;
+  color: $text-body;
+  background-color: $bg-body;
+  line-height: $line-height-base;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-heading;
-  color: $text-dark;
-  font-weight: 700;
+  color: $text-heading;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  margin-bottom: 0;
 }
 
 a {
@@ -58,72 +38,42 @@ a {
   &:hover { color: $primary-dark; }
 }
 
-// ─── Utility Classes ──────────────────────────────────────────────────────────
+img { max-width: 100%; height: auto; }
+
+// ─── Global Utility Classes ───────────────────────────────────────────────────
+.text-gold  { color: $primary !important; }
+.bg-cream   { background-color: $bg-light !important; }
+.bg-navy    { background-color: $secondary !important; }
+
+.gold-divider {
+  @include gold-divider;
+}
+
+.btn-gold       { @include btn-gold; }
+.btn-outline-gold { @include btn-outline-gold; }
+
+.section-eyebrow {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semi;
+  letter-spacing: $letter-spacing-caps;
+  text-transform: uppercase;
+  color: $primary;
+  margin-bottom: $space-sm;
+}
+
 .section-title {
   font-family: $font-heading;
   font-size: clamp(1.8rem, 4vw, 2.8rem);
-  color: $text-dark;
-  font-weight: 700;
-  line-height: 1.2;
+  color: $text-heading;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
 }
 
 .section-subtitle {
-  font-size: 1rem;
+  font-size: $font-size-base;
   color: $text-muted;
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 580px;
+  margin: $space-md auto 0;
+  line-height: $line-height-relaxed;
 }
-
-.gold-divider {
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(90deg, $primary, $primary-dark);
-  border-radius: 2px;
-  margin: 1rem auto;
-}
-
-.btn-gold {
-  background: linear-gradient(135deg, $primary, $primary-dark);
-  color: $white;
-  border: none;
-  padding: 0.75rem 2rem;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  letter-spacing: 0.5px;
-  transition: transform $transition-base, box-shadow $transition-base;
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba($primary, 0.4);
-    color: $white;
-  }
-  &:focus-visible {
-    outline: 3px solid $primary-light;
-    outline-offset: 2px;
-  }
-}
-
-.btn-outline-gold {
-  background: transparent;
-  color: $primary;
-  border: 2px solid $primary;
-  padding: 0.7rem 1.8rem;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: all $transition-base;
-  &:hover {
-    background: $primary;
-    color: $white;
-    transform: translateY(-2px);
-  }
-  &:focus-visible {
-    outline: 3px solid $primary-light;
-    outline-offset: 2px;
-  }
-}
-
-.bg-cream { background-color: $bg-light; }
-.bg-dark-navy { background-color: $secondary; }
-.text-gold { color: $primary; }
 

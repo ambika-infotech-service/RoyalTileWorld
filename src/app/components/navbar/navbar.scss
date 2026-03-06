@@ -1,21 +1,11 @@
-@use 'sass:color';
-
-// Forward global vars – adjust path if needed
-$primary:        #c8a96e;
-$primary-dark:   #a07840;
-$secondary:      #1a1a2e;
-$white:          #ffffff;
-$text-light:     #f5f5f5;
-$transition-base: 0.3s ease;
-$font-heading:   'Playfair Display', Georgia, serif;
-$font-body:      'Inter', 'Segoe UI', sans-serif;
+@use 'theme' as *;
 
 :host {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: $z-navbar;
   display: block;
 }
 
@@ -26,16 +16,18 @@ $font-body:      'Inter', 'Segoe UI', sans-serif;
 
   &.scrolled {
     background: rgba($secondary, 0.97);
-    box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 2px 20px rgba(#000, 0.25);
     padding: 0.6rem 0;
 
-    .brand-title { color: $white; }
-    .brand-tagline { color: rgba($white, 0.6); }
+    .brand-title  { color: $text-white; }
+    .brand-tagline { color: rgba($text-white, 0.55); }
     .nav-link {
-      color: rgba($white, 0.85);
+      color: rgba($text-white, 0.82);
       &:hover { color: $primary; }
     }
-    .hamburger .bar { background: $white; }
+    .hamburger .bar { background: $text-white; }
   }
 }
 
@@ -43,14 +35,14 @@ $font-body:      'Inter', 'Segoe UI', sans-serif;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
+  gap: $space-lg;
 }
 
 // Brand
 .brand {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: $space-sm;
   text-decoration: none;
 
   .brand-icon {
@@ -67,17 +59,17 @@ $font-body:      'Inter', 'Segoe UI', sans-serif;
 
   .brand-title {
     font-family: $font-heading;
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: $white;
-    letter-spacing: 0.3px;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: $text-white;
+    letter-spacing: $letter-spacing-wide;
   }
 
   .brand-tagline {
-    font-size: 0.65rem;
-    font-weight: 400;
-    color: rgba($white, 0.55);
-    letter-spacing: 1px;
+    font-size: 0.62rem;
+    font-weight: $font-weight-medium;
+    color: rgba($text-white, 0.5);
+    letter-spacing: 1.2px;
     text-transform: uppercase;
   }
 }
@@ -88,41 +80,46 @@ $font-body:      'Inter', 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 0.25rem;
+  gap: $space-xs;
 
   @media (max-width: 991px) { display: none; }
 }
 
 .nav-link {
   display: inline-block;
-  padding: 0.5rem 0.9rem;
-  font-size: 0.92rem;
-  font-weight: 500;
-  color: rgba($white, 0.85);
+  padding: 0.45rem 0.85rem;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: rgba($text-white, 0.82);
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: $radius-sm;
   transition: color $transition-base, background $transition-base;
 
   &:hover {
     color: $primary;
     background: rgba($primary, 0.08);
   }
+
+  @include focus-ring;
 }
+
+// CTA button
+.btn-gold { @include btn-gold; }
 
 // Hamburger
 .hamburger {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.4rem;
+  padding: $space-xs;
   display: none;
   flex-direction: column;
   gap: 5px;
-  border-radius: 6px;
+  border-radius: $radius-sm;
   transition: background $transition-base;
 
-  &:hover { background: rgba($white, 0.08); }
-  &:focus-visible { outline: 2px solid $primary; }
+  &:hover { background: rgba($text-white, 0.08); }
+  @include focus-ring;
 
   @media (max-width: 991px) { display: flex; }
 
@@ -130,9 +127,9 @@ $font-body:      'Inter', 'Segoe UI', sans-serif;
     display: block;
     width: 24px;
     height: 2px;
-    background: $white;
+    background: $text-white;
     border-radius: 2px;
-    transition: transform $transition-base, opacity $transition-base;
+    transition: transform $transition-fast, opacity $transition-fast;
   }
 
   .bar.open {
@@ -147,34 +144,35 @@ $font-body:      'Inter', 'Segoe UI', sans-serif;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease, padding $transition-base;
-  padding: 0;
 
   &.open {
     max-height: 500px;
-    padding-bottom: 1rem;
+    padding-bottom: $space-md;
+    background: rgba($secondary, 0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
 
   ul {
     list-style: none;
     margin: 0;
-    padding: 0.5rem 0 0;
+    padding: $space-sm 0 0;
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: $space-xs;
   }
 
   .nav-link {
     display: block;
-    padding: 0.6rem 1rem;
-    color: rgba($white, 0.85);
-    border-radius: 8px;
-    &:hover { background: rgba($primary, 0.12); color: $primary; }
+    padding: $space-sm $space-md;
+    color: rgba($text-white, 0.82);
+    border-radius: $radius-md;
+    &:hover { background: rgba($primary, 0.1); color: $primary; }
   }
-}
 
-// Force dark bg on mobile menu regardless of scroll
-:host {
-  .mobile-menu.open {
-    background: rgba($secondary, 0.97);
+  .btn-gold {
+    width: 100%;
+    justify-content: center;
+    margin-top: $space-sm;
   }
 }

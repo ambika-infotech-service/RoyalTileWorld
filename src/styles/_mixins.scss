@@ -1,0 +1,130 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// Royal Tile World — Shared Mixins & Placeholders
+// ─────────────────────────────────────────────────────────────────────────────
+@use 'variables' as *;
+
+// ── Section header block ──────────────────────────────────────────────────────
+@mixin section-header {
+  .section-eyebrow {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-semi;
+    letter-spacing: $letter-spacing-caps;
+    text-transform: uppercase;
+    color: $primary;
+    margin-bottom: $space-sm;
+  }
+
+  .section-title {
+    font-family: $font-heading;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: $text-heading;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-tight;
+    margin-bottom: $space-xs;
+  }
+
+  .section-subtitle {
+    font-size: $font-size-base;
+    color: $text-muted;
+    max-width: 580px;
+    margin: $space-md auto 0;
+    line-height: $line-height-relaxed;
+  }
+}
+
+// ── Gold divider ──────────────────────────────────────────────────────────────
+@mixin gold-divider($margin: '1rem auto') {
+  width: 60px;
+  height: 3px;
+  background: $gradient-gold-div;
+  border-radius: 2px;
+  margin: #{$margin};
+}
+
+// ── Gold button ───────────────────────────────────────────────────────────────
+@mixin btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-sm;
+  background: $gradient-gold;
+  color: $text-white;
+  border: none;
+  padding: 0.78rem 1.9rem;
+  border-radius: $radius-pill;
+  font-weight: $font-weight-semi;
+  font-size: $font-size-sm;
+  letter-spacing: $letter-spacing-wide;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform $transition-base, box-shadow $transition-base;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: $shadow-gold-lg;
+    color: $text-white;
+  }
+  &:focus-visible {
+    outline: 3px solid $primary-light;
+    outline-offset: 2px;
+  }
+}
+
+// ── Outline gold button ───────────────────────────────────────────────────────
+@mixin btn-outline-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-sm;
+  background: transparent;
+  color: $primary;
+  border: 2px solid $primary;
+  padding: 0.72rem 1.8rem;
+  border-radius: $radius-pill;
+  font-weight: $font-weight-semi;
+  font-size: $font-size-sm;
+  letter-spacing: $letter-spacing-wide;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all $transition-base;
+
+  &:hover {
+    background: $primary;
+    color: $text-white;
+    transform: translateY(-3px);
+    box-shadow: $shadow-gold;
+  }
+  &:focus-visible {
+    outline: 3px solid $primary-light;
+    outline-offset: 2px;
+  }
+}
+
+// ── Card base ─────────────────────────────────────────────────────────────────
+@mixin card-base($hover-lift: -6px) {
+  background: $bg-body;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-md;
+  transition: transform $transition-base, box-shadow $transition-base;
+
+  &:hover {
+    transform: translateY(#{$hover-lift});
+    box-shadow: $shadow-lg;
+  }
+}
+
+// ── Responsive section padding ────────────────────────────────────────────────
+@mixin section-padding {
+  padding: $space-5xl 0;
+
+  @media (max-width: 768px) {
+    padding: $space-4xl 0;
+  }
+}
+
+// ── Focusable link/button ─────────────────────────────────────────────────────
+@mixin focus-ring($color: $primary) {
+  &:focus-visible {
+    outline: 3px solid $color;
+    outline-offset: 2px;
+    border-radius: $radius-sm;
+  }
+}

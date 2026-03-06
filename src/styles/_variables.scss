@@ -1,0 +1,96 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// Royal Tile World — Design Tokens
+// ─────────────────────────────────────────────────────────────────────────────
+
+// ── Colour Palette ────────────────────────────────────────────────────────────
+$primary:           #c8a96e;   // warm gold
+$primary-dark:      #a07840;   // deep gold
+$primary-light:     #f0ddb0;   // pale gold tint
+$primary-muted:     rgba(#c8a96e, 0.12); // translucent gold for backgrounds
+
+$secondary:         #1a1a2e;   // deep navy
+$secondary-mid:     #2d2d44;   // mid navy
+$secondary-light:   #3e3e5c;   // lighter navy
+
+$bg-body:           #ffffff;
+$bg-light:          #faf8f5;   // warm cream
+$bg-dark:           #12121e;   // near-black
+
+$text-heading:      #1a1a2e;
+$text-body:         #374151;
+$text-muted:        #6b7280;
+$text-light:        #f5f5f5;
+$text-white:        #ffffff;
+
+$success:           #16a34a;
+$danger:            #dc3545;
+$border-color:      rgba(#1a1a2e, 0.1);
+
+// ── Typography ────────────────────────────────────────────────────────────────
+$font-heading:  'Playfair Display', Georgia, serif;
+$font-body:     'Inter', 'Segoe UI', system-ui, sans-serif;
+
+$font-size-xs:   0.75rem;    //  12px
+$font-size-sm:   0.875rem;   //  14px
+$font-size-base: 1rem;       //  16px
+$font-size-lg:   1.125rem;   //  18px
+$font-size-xl:   1.25rem;    //  20px
+
+$font-weight-regular: 400;
+$font-weight-medium:  500;
+$font-weight-semi:    600;
+$font-weight-bold:    700;
+
+$line-height-tight:  1.2;
+$line-height-snug:   1.4;
+$line-height-base:   1.65;
+$line-height-relaxed: 1.8;
+
+$letter-spacing-wide:  0.5px;
+$letter-spacing-wider: 1.5px;
+$letter-spacing-caps:  2.5px;
+
+// ── Spacing ───────────────────────────────────────────────────────────────────
+$space-xs:    0.25rem;   //  4px
+$space-sm:    0.5rem;    //  8px
+$space-md:    1rem;      // 16px
+$space-lg:    1.5rem;    // 24px
+$space-xl:    2rem;      // 32px
+$space-2xl:   3rem;      // 48px
+$space-3xl:   4rem;      // 64px
+$space-4xl:   5rem;      // 80px
+$space-5xl:   6rem;      // 96px
+
+$section-padding: 6rem 0;
+
+// ── Borders ───────────────────────────────────────────────────────────────────
+$radius-sm:   0.375rem;  //  6px
+$radius-md:   0.625rem;  // 10px
+$radius-lg:   1rem;      // 16px
+$radius-xl:   1.25rem;   // 20px
+$radius-pill: 50px;
+$radius-full: 9999px;
+
+// ── Shadows ───────────────────────────────────────────────────────────────────
+$shadow-sm:   0 2px 8px rgba(#1a1a2e, 0.07);
+$shadow-md:   0 4px 20px rgba(#1a1a2e, 0.1);
+$shadow-lg:   0 12px 40px rgba(#1a1a2e, 0.14);
+$shadow-xl:   0 20px 60px rgba(#1a1a2e, 0.18);
+$shadow-gold: 0 8px 28px rgba(#c8a96e, 0.35);
+$shadow-gold-lg: 0 14px 40px rgba(#c8a96e, 0.4);
+
+// ── Transitions ───────────────────────────────────────────────────────────────
+$transition-fast:   0.15s ease;
+$transition-base:   0.3s ease;
+$transition-slow:   0.5s ease;
+
+// ── Z-index Scale ─────────────────────────────────────────────────────────────
+$z-navbar:  1000;
+$z-overlay: 900;
+$z-modal:   1100;
+
+// ── Gradients ─────────────────────────────────────────────────────────────────
+$gradient-gold:        linear-gradient(135deg, $primary, $primary-dark);
+$gradient-hero:        linear-gradient(135deg, rgba($secondary, 0.88) 0%, rgba($bg-dark, 0.6) 100%);
+$gradient-dark:        linear-gradient(135deg, $secondary, $secondary-mid);
+$gradient-gold-div:    linear-gradient(90deg, $primary, $primary-dark);
