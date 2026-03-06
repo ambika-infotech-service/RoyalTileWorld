@@ -1,0 +1,69 @@
+@use 'theme' as *;
+
+.wa-btn {
+  position: fixed;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  z-index: $z-modal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  background: #25d366;
+  color: $text-white;
+  border-radius: $radius-pill;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(#25d366, 0.45);
+  transition: width $transition-base, padding $transition-base,
+              background $transition-base, transform $transition-base,
+              box-shadow $transition-base;
+
+  i { font-size: 1.6rem; flex-shrink: 0; line-height: 1; color: $text-white; }
+
+  &:hover,
+  &:focus-visible {
+    background: #1da851;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(#25d366, 0.5);
+    width: 172px;
+    gap: $space-sm;
+    justify-content: flex-start;
+    padding: 0 1.25rem;
+  }
+
+  @include focus-ring(#25d366);
+}
+
+.wa-label {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semi;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 0;
+  opacity: 0;
+  transition: max-width $transition-base, opacity $transition-base;
+
+  .wa-btn:hover &,
+  .wa-btn:focus-visible & { max-width: 120px; opacity: 1; }
+}
+
+@media (max-width: 480px) {
+  .wa-btn {
+    bottom: 1rem;
+    right: 1rem;
+    width: 50px;
+    height: 50px;
+
+    &:hover, &:focus-visible {
+      width: 50px;
+      gap: 0;
+      justify-content: center;
+      padding: 0;
+    }
+  }
+
+  .wa-label { display: none; }
+}
