@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Navbar } from './components/navbar/navbar';
 import { Footer } from './components/footer/footer';
 import { WhatsappButton } from './components/whatsapp-button/whatsapp-button';
+import { Seo } from './services/seo';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +11,9 @@ import { WhatsappButton } from './components/whatsapp-button/whatsapp-button';
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App {}
+export class App {
+  constructor() {
+    inject(Seo);
+  }
+}
 
