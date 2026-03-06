@@ -1,0 +1,32 @@
+{
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "[html]": {
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[plaintext]": {
+    "editor.tabSize": 4,
+  },
+  "Workspace_Formatter.excludePattern": [
+    "*.spec.ts"
+  ],
+}
