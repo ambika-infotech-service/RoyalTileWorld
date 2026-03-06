@@ -1,0 +1,41 @@
+<section class="why-section" aria-labelledby="why-heading">
+  <div class="container">
+    <div class="section-header text-center">
+      <p class="section-eyebrow">Why Royal Tile World</p>
+      <h2 id="why-heading" class="section-title">The Royal Difference</h2>
+      <div class="gold-divider mx-auto" aria-hidden="true"></div>
+      <p class="section-subtitle">
+        We don't just sell tiles — we help you build beautiful, lasting spaces
+        backed by expertise and trust.
+      </p>
+    </div>
+
+    <div class="row g-4 mt-2">
+      @for (feature of features(); track feature.title) {
+        <div class="col-sm-6 col-lg-4">
+          <div class="feature-card" role="article" [attr.aria-label]="feature.title">
+            <div class="feature-icon" aria-hidden="true">
+              <i [class]="'bi ' + feature.icon"></i>
+            </div>
+            <h3 class="feature-title">{{ feature.title }}</h3>
+            <p class="feature-description">{{ feature.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- CTA Banner -->
+    <div class="cta-banner mt-5" role="complementary" aria-label="Call to action">
+      <div class="cta-content">
+        <div>
+          <h3 class="cta-title">Ready to Transform Your Space?</h3>
+          <p class="cta-subtitle">Visit our showroom or get a free consultation today.</p>
+        </div>
+        <a href="#contact" class="btn-gold-light">
+          <i class="bi bi-building" aria-hidden="true"></i> Visit Showroom
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+

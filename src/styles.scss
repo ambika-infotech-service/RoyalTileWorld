@@ -1,1 +1,129 @@
-/* You can add global styles to this file, and also import other style files */
+// ─── Theme Variables ──────────────────────────────────────────────────────────
+$primary:        #c8a96e;   // warm gold
+$primary-dark:   #a07840;   // deeper gold
+$primary-light:  #f0ddb0;   // pale gold tint
+$secondary:      #1a1a2e;   // deep navy
+$secondary-mid:  #2d2d44;   // mid-dark navy
+$accent:         #e8e0d0;   // warm off-white / cream
+$text-dark:      #1a1a2e;
+$text-muted:     #6b7280;
+$text-light:     #f5f5f5;
+$white:          #ffffff;
+$bg-light:       #faf8f5;   // warm near-white background
+$bg-dark:        #12121e;   // very dark background
+
+// Typography
+$font-heading:   'Playfair Display', Georgia, serif;
+$font-body:      'Inter', 'Segoe UI', sans-serif;
+
+// Spacing
+$section-py:     5rem;
+$border-radius-lg: 1rem;
+
+// Transition
+$transition-base: 0.3s ease;
+
+// ─── Google Fonts ─────────────────────────────────────────────────────────────
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+// ─── Global Base Styles ───────────────────────────────────────────────────────
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-body;
+  color: $text-dark;
+  background-color: $white;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-heading;
+  color: $text-dark;
+  font-weight: 700;
+}
+
+a {
+  color: $primary;
+  text-decoration: none;
+  transition: color $transition-base;
+  &:hover { color: $primary-dark; }
+}
+
+// ─── Utility Classes ──────────────────────────────────────────────────────────
+.section-title {
+  font-family: $font-heading;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: $text-dark;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: $text-muted;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.gold-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, $primary, $primary-dark);
+  border-radius: 2px;
+  margin: 1rem auto;
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, $primary, $primary-dark);
+  color: $white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  transition: transform $transition-base, box-shadow $transition-base;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba($primary, 0.4);
+    color: $white;
+  }
+  &:focus-visible {
+    outline: 3px solid $primary-light;
+    outline-offset: 2px;
+  }
+}
+
+.btn-outline-gold {
+  background: transparent;
+  color: $primary;
+  border: 2px solid $primary;
+  padding: 0.7rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all $transition-base;
+  &:hover {
+    background: $primary;
+    color: $white;
+    transform: translateY(-2px);
+  }
+  &:focus-visible {
+    outline: 3px solid $primary-light;
+    outline-offset: 2px;
+  }
+}
+
+.bg-cream { background-color: $bg-light; }
+.bg-dark-navy { background-color: $secondary; }
+.text-gold { color: $primary; }
+

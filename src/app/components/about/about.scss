@@ -1,0 +1,197 @@
+$primary:        #c8a96e;
+$primary-dark:   #a07840;
+$primary-light:  #f0ddb0;
+$secondary:      #1a1a2e;
+$text-dark:      #1a1a2e;
+$text-muted:     #6b7280;
+$white:          #ffffff;
+$bg-light:       #faf8f5;
+$font-heading:   'Playfair Display', Georgia, serif;
+$font-body:      'Inter', 'Segoe UI', sans-serif;
+$transition-base: 0.3s ease;
+
+.about-section {
+  padding: 6rem 0;
+  background-color: $bg-light;
+}
+
+.section-eyebrow {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: $primary;
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: $font-heading;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: $text-dark;
+  font-weight: 700;
+  line-height: 1.22;
+  margin-bottom: 0.5rem;
+}
+
+.text-gold { color: $primary; }
+
+.gold-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, $primary, $primary-dark);
+  border-radius: 2px;
+  margin: 1.2rem 0 1.8rem;
+}
+
+.about-content {
+  padding-left: 0.5rem;
+}
+
+.about-lead {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: $text-dark;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.about-text {
+  color: $text-muted;
+  line-height: 1.8;
+  margin-bottom: 1.75rem;
+}
+
+.about-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: $text-dark;
+
+    i {
+      color: $primary;
+      font-size: 1.05rem;
+      flex-shrink: 0;
+    }
+  }
+}
+
+.about-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  .btn-gold,
+  .btn-outline-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.92rem;
+    padding: 0.7rem 1.6rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all $transition-base;
+    &:focus-visible {
+      outline: 3px solid $primary-light;
+      outline-offset: 2px;
+    }
+  }
+
+  .btn-gold {
+    background: linear-gradient(135deg, $primary, $primary-dark);
+    color: $white;
+    border: none;
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba($primary, 0.35);
+      color: $white;
+    }
+  }
+
+  .btn-outline-gold {
+    border: 2px solid $primary;
+    color: $primary;
+    background: transparent;
+    &:hover {
+      background: $primary;
+      color: $white;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+// Image Card
+.about-image-wrapper {
+  position: relative;
+  padding-bottom: 2rem;
+
+  .image-main {
+    border-radius: 1.25rem;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba($secondary, 0.18);
+    img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    &:hover img { transform: scale(1.04); }
+  }
+
+  .image-badge {
+    position: absolute;
+    bottom: 0;
+    left: -1.5rem;
+    background: linear-gradient(135deg, $primary, $primary-dark);
+    color: $white;
+    border-radius: 1rem;
+    padding: 1.25rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba($primary, 0.35);
+    min-width: 110px;
+
+    .badge-number {
+      display: block;
+      font-family: $font-heading;
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .badge-text {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.85;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 576px) {
+      left: 0.5rem;
+    }
+  }
+
+  .image-accent {
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    width: 120px;
+    height: 120px;
+    border: 3px solid rgba($primary, 0.25);
+    border-radius: 1rem;
+    z-index: -1;
+  }
+}

@@ -1,0 +1,185 @@
+$primary:        #c8a96e;
+$primary-dark:   #a07840;
+$primary-light:  #f0ddb0;
+$secondary:      #1a1a2e;
+$text-dark:      #1a1a2e;
+$text-muted:     #6b7280;
+$white:          #ffffff;
+$bg-light:       #faf8f5;
+$font-heading:   'Playfair Display', Georgia, serif;
+$transition-base: 0.3s ease;
+$border-radius-lg: 1rem;
+
+.products-section {
+  padding: 6rem 0;
+  background: $white;
+}
+
+.section-eyebrow {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: $primary;
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: $font-heading;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: $text-dark;
+  font-weight: 700;
+  line-height: 1.22;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: $text-muted;
+  max-width: 580px;
+  margin: 1rem auto 0;
+  line-height: 1.7;
+}
+
+.gold-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, $primary, $primary-dark);
+  border-radius: 2px;
+  margin: 1rem auto;
+}
+
+// Product Card
+.product-card {
+  background: $white;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba($secondary, 0.08);
+  transition: transform $transition-base, box-shadow $transition-base;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba($secondary, 0.15);
+
+    .card-img-wrapper img { transform: scale(1.06); }
+    .card-cta { gap: 0.75rem; color: $primary-dark; }
+  }
+
+  &:focus-within {
+    outline: 2px solid $primary;
+    outline-offset: 2px;
+  }
+}
+
+.card-img-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+}
+
+.card-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: linear-gradient(135deg, $primary, $primary-dark);
+  color: $white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 50px;
+}
+
+.card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-icon {
+  width: 44px;
+  height: 44px;
+  background: rgba($primary, 0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+
+  i {
+    font-size: 1.3rem;
+    color: $primary;
+  }
+}
+
+.card-title {
+  font-family: $font-heading;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: $text-dark;
+  margin-bottom: 0.6rem;
+}
+
+.card-description {
+  font-size: 0.88rem;
+  color: $text-muted;
+  line-height: 1.75;
+  flex: 1;
+  margin-bottom: 1.25rem;
+}
+
+.card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: $primary;
+  transition: gap $transition-base, color $transition-base;
+  text-decoration: none;
+  margin-top: auto;
+
+  &:focus-visible {
+    outline: 2px solid $primary;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+// Bottom CTA
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, $primary, $primary-dark);
+  color: $white;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform $transition-base, box-shadow $transition-base;
+  border: none;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba($primary, 0.38);
+    color: $white;
+  }
+  &:focus-visible {
+    outline: 3px solid $primary-light;
+    outline-offset: 2px;
+  }
+}

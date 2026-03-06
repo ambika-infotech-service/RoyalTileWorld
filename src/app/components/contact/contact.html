@@ -1,0 +1,177 @@
+<section id="contact" class="contact-section" aria-labelledby="contact-heading">
+  <div class="container">
+    <div class="section-header text-center">
+      <p class="section-eyebrow">Get In Touch</p>
+      <h2 id="contact-heading" class="section-title">Contact Royal Tile World</h2>
+      <div class="gold-divider mx-auto" aria-hidden="true"></div>
+      <p class="section-subtitle">
+        Have a project in mind? We'd love to help. Reach out to us for pricing,
+        availability, or a free design consultation.
+      </p>
+    </div>
+
+    <div class="row g-5 mt-2 align-items-start">
+      <!-- Info Cards -->
+      <div class="col-lg-4">
+        <div class="info-cards">
+          <div class="info-card" aria-label="Address">
+            <div class="info-icon" aria-hidden="true">
+              <i class="bi bi-geo-alt-fill"></i>
+            </div>
+            <div class="info-content">
+              <h3 class="info-title">Showroom Address</h3>
+              <p class="info-text">123 Tile Market, Industrial Area,<br>Ahmedabad, Gujarat – 380001</p>
+            </div>
+          </div>
+          <div class="info-card" aria-label="Phone">
+            <div class="info-icon" aria-hidden="true">
+              <i class="bi bi-telephone-fill"></i>
+            </div>
+            <div class="info-content">
+              <h3 class="info-title">Call Us</h3>
+              <p class="info-text">
+                <a href="tel:+919876543210" class="contact-link">+91 98765 43210</a><br>
+                <a href="tel:+917890123456" class="contact-link">+91 78901 23456</a>
+              </p>
+            </div>
+          </div>
+          <div class="info-card" aria-label="Email">
+            <div class="info-icon" aria-hidden="true">
+              <i class="bi bi-envelope-fill"></i>
+            </div>
+            <div class="info-content">
+              <h3 class="info-title">Email Us</h3>
+              <p class="info-text">
+                <a href="mailto:info@royaltileworld.com" class="contact-link">info&#64;royaltileworld.com</a>
+              </p>
+            </div>
+          </div>
+          <div class="info-card" aria-label="Business hours">
+            <div class="info-icon" aria-hidden="true">
+              <i class="bi bi-clock-fill"></i>
+            </div>
+            <div class="info-content">
+              <h3 class="info-title">Business Hours</h3>
+              <p class="info-text">Mon – Sat: 9:00 AM – 7:00 PM<br>Sunday: 10:00 AM – 4:00 PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="col-lg-8">
+        <div class="form-card">
+          @if (submitSuccess()) {
+            <div class="success-message" role="alert" aria-live="polite">
+              <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+              <div>
+                <strong>Message Sent!</strong>
+                <p>Thank you for contacting Royal Tile World. We'll get back to you within 24 hours.</p>
+              </div>
+            </div>
+          }
+
+          <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate aria-label="Contact form">
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label class="form-label" for="name">Full Name <span aria-label="required" class="required">*</span></label>
+                <input
+                  type="text"
+                  id="name"
+                  class="form-control"
+                  formControlName="name"
+                  placeholder="Your full name"
+                  autocomplete="name"
+                  [class.is-invalid]="submitted() && form.controls.name.invalid"
+                  aria-required="true"
+                  [attr.aria-describedby]="submitted() && form.controls.name.invalid ? 'name-error' : null"
+                />
+                @if (submitted() && form.controls.name.invalid) {
+                  <div id="name-error" class="invalid-feedback" role="alert">Please enter your name (min. 2 characters).</div>
+                }
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="phone">Phone Number <span aria-label="required" class="required">*</span></label>
+                <input
+                  type="tel"
+                  id="phone"
+                  class="form-control"
+                  formControlName="phone"
+                  placeholder="10-digit mobile number"
+                  autocomplete="tel"
+                  [class.is-invalid]="submitted() && form.controls.phone.invalid"
+                  aria-required="true"
+                  [attr.aria-describedby]="submitted() && form.controls.phone.invalid ? 'phone-error' : null"
+                />
+                @if (submitted() && form.controls.phone.invalid) {
+                  <div id="phone-error" class="invalid-feedback" role="alert">Enter a valid 10-digit Indian mobile number.</div>
+                }
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="email">Email Address <span aria-label="required" class="required">*</span></label>
+                <input
+                  type="email"
+                  id="email"
+                  class="form-control"
+                  formControlName="email"
+                  placeholder="your@email.com"
+                  autocomplete="email"
+                  [class.is-invalid]="submitted() && form.controls.email.invalid"
+                  aria-required="true"
+                  [attr.aria-describedby]="submitted() && form.controls.email.invalid ? 'email-error' : null"
+                />
+                @if (submitted() && form.controls.email.invalid) {
+                  <div id="email-error" class="invalid-feedback" role="alert">Please enter a valid email address.</div>
+                }
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="subject">Subject <span aria-label="required" class="required">*</span></label>
+                <select
+                  id="subject"
+                  class="form-select"
+                  formControlName="subject"
+                  [class.is-invalid]="submitted() && form.controls.subject.invalid"
+                  aria-required="true"
+                  [attr.aria-describedby]="submitted() && form.controls.subject.invalid ? 'subject-error' : null"
+                >
+                  <option value="">Select a subject</option>
+                  <option value="quote">Request a Quote</option>
+                  <option value="catalogue">Catalogue Request</option>
+                  <option value="consultation">Design Consultation</option>
+                  <option value="bulk">Bulk Order Inquiry</option>
+                  <option value="other">Other</option>
+                </select>
+                @if (submitted() && form.controls.subject.invalid) {
+                  <div id="subject-error" class="invalid-feedback" role="alert">Please select a subject.</div>
+                }
+              </div>
+              <div class="col-12">
+                <label class="form-label" for="message">Message <span aria-label="required" class="required">*</span></label>
+                <textarea
+                  id="message"
+                  class="form-control"
+                  formControlName="message"
+                  rows="5"
+                  placeholder="Tell us about your project, tile requirements, or any questions..."
+                  [class.is-invalid]="submitted() && form.controls.message.invalid"
+                  aria-required="true"
+                  [attr.aria-describedby]="submitted() && form.controls.message.invalid ? 'message-error' : null"
+                ></textarea>
+                @if (submitted() && form.controls.message.invalid) {
+                  <div id="message-error" class="invalid-feedback" role="alert">Please enter a message (min. 10 characters).</div>
+                }
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn-submit" aria-label="Send your message to Royal Tile World">
+                  <i class="bi bi-send-fill" aria-hidden="true"></i>
+                  Send Message
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

@@ -1,0 +1,180 @@
+@use 'sass:color';
+
+// Forward global vars – adjust path if needed
+$primary:        #c8a96e;
+$primary-dark:   #a07840;
+$secondary:      #1a1a2e;
+$white:          #ffffff;
+$text-light:     #f5f5f5;
+$transition-base: 0.3s ease;
+$font-heading:   'Playfair Display', Georgia, serif;
+$font-body:      'Inter', 'Segoe UI', sans-serif;
+
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: block;
+}
+
+.navbar-wrapper {
+  background: transparent;
+  transition: background $transition-base, box-shadow $transition-base, padding $transition-base;
+  padding: 1.2rem 0;
+
+  &.scrolled {
+    background: rgba($secondary, 0.97);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+    padding: 0.6rem 0;
+
+    .brand-title { color: $white; }
+    .brand-tagline { color: rgba($white, 0.6); }
+    .nav-link {
+      color: rgba($white, 0.85);
+      &:hover { color: $primary; }
+    }
+    .hamburger .bar { background: $white; }
+  }
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+// Brand
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+
+  .brand-icon {
+    font-size: 2rem;
+    color: $primary;
+    line-height: 1;
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .brand-title {
+    font-family: $font-heading;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: $white;
+    letter-spacing: 0.3px;
+  }
+
+  .brand-tagline {
+    font-size: 0.65rem;
+    font-weight: 400;
+    color: rgba($white, 0.55);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+}
+
+// Desktop nav links
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0.25rem;
+
+  @media (max-width: 991px) { display: none; }
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: rgba($white, 0.85);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: color $transition-base, background $transition-base;
+
+  &:hover {
+    color: $primary;
+    background: rgba($primary, 0.08);
+  }
+}
+
+// Hamburger
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  border-radius: 6px;
+  transition: background $transition-base;
+
+  &:hover { background: rgba($white, 0.08); }
+  &:focus-visible { outline: 2px solid $primary; }
+
+  @media (max-width: 991px) { display: flex; }
+
+  .bar {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: $white;
+    border-radius: 2px;
+    transition: transform $transition-base, opacity $transition-base;
+  }
+
+  .bar.open {
+    &:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    &:nth-child(2) { opacity: 0; }
+    &:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  }
+}
+
+// Mobile menu
+.mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding $transition-base;
+  padding: 0;
+
+  &.open {
+    max-height: 500px;
+    padding-bottom: 1rem;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 0.6rem 1rem;
+    color: rgba($white, 0.85);
+    border-radius: 8px;
+    &:hover { background: rgba($primary, 0.12); color: $primary; }
+  }
+}
+
+// Force dark bg on mobile menu regardless of scroll
+:host {
+  .mobile-menu.open {
+    background: rgba($secondary, 0.97);
+  }
+}

@@ -1,0 +1,60 @@
+<nav class="navbar-wrapper" [class.scrolled]="scrolled()" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-inner">
+      <!-- Brand -->
+      <a href="#home" class="brand" (click)="closeMenu()" aria-label="Royal Tile World – go to home">
+        <span class="brand-icon"><i class="bi bi-hexagon-fill" aria-hidden="true"></i></span>
+        <span class="brand-text">
+          <span class="brand-title">Royal Tile World</span>
+          <span class="brand-tagline">Premium Surface Solutions</span>
+        </span>
+      </a>
+
+      <!-- Desktop Links -->
+      <ul class="nav-links" role="list">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#products" class="nav-link">Products</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <!-- CTA -->
+      <a href="#contact" class="btn-gold d-none d-lg-inline-flex align-items-center gap-2">
+        <i class="bi bi-telephone-fill" aria-hidden="true"></i> Get a Quote
+      </a>
+
+      <!-- Hamburger -->
+      <button
+        class="hamburger"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="menuOpen()"
+        aria-controls="mobile-menu"
+        aria-label="Toggle mobile menu"
+      >
+        <span class="bar" [class.open]="menuOpen()"></span>
+        <span class="bar" [class.open]="menuOpen()"></span>
+        <span class="bar" [class.open]="menuOpen()"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div
+      id="mobile-menu"
+      class="mobile-menu"
+      [class.open]="menuOpen()"
+      role="navigation"
+      aria-label="Mobile navigation"
+    >
+      <ul role="list">
+        <li><a href="#home" class="nav-link" (click)="closeMenu()">Home</a></li>
+        <li><a href="#about" class="nav-link" (click)="closeMenu()">About</a></li>
+        <li><a href="#products" class="nav-link" (click)="closeMenu()">Products</a></li>
+        <li><a href="#gallery" class="nav-link" (click)="closeMenu()">Gallery</a></li>
+        <li><a href="#contact" class="nav-link" (click)="closeMenu()">Contact</a></li>
+        <li><a href="#contact" class="btn-gold w-100 text-center mt-2" (click)="closeMenu()">Get a Quote</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+

@@ -1,0 +1,38 @@
+<section id="gallery" class="gallery-section" aria-labelledby="gallery-heading">
+  <div class="container">
+    <div class="section-header text-center">
+      <p class="section-eyebrow">Inspiration</p>
+      <h2 id="gallery-heading" class="section-title">Our Showcase Gallery</h2>
+      <div class="gold-divider mx-auto" aria-hidden="true"></div>
+      <p class="section-subtitle">
+        Explore stunning tile installations from our customers' homes and
+        commercial projects.
+      </p>
+    </div>
+
+    <div class="gallery-grid mt-4" role="list" aria-label="Gallery of tile installations">
+      @for (item of items(); track item.title) {
+        <article class="gallery-item" role="listitem" [attr.aria-label]="item.title + ' - ' + item.category">
+          <img
+            [src]="item.imgUrl"
+            [alt]="item.title + ' tile installation in ' + item.category"
+            loading="lazy"
+            width="500"
+            height="380"
+          />
+          <div class="gallery-overlay" aria-hidden="true">
+            <span class="gallery-category">{{ item.category }}</span>
+            <h3 class="gallery-title">{{ item.title }}</h3>
+          </div>
+        </article>
+      }
+    </div>
+
+    <div class="text-center mt-5">
+      <a href="#contact" class="btn-gold" aria-label="Get inspired - contact us for more">
+        <i class="bi bi-stars" aria-hidden="true"></i> Get Inspired
+      </a>
+    </div>
+  </div>
+</section>
+

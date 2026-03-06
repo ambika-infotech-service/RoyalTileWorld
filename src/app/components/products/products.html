@@ -1,0 +1,51 @@
+<section id="products" class="products-section" aria-labelledby="products-heading">
+  <div class="container">
+    <div class="section-header text-center">
+      <p class="section-eyebrow">Our Collections</p>
+      <h2 id="products-heading" class="section-title">Premium Tile Categories</h2>
+      <div class="gold-divider mx-auto" aria-hidden="true"></div>
+      <p class="section-subtitle">
+        From classic ceramics to luxurious porcelain, explore our wide range crafted
+        for every style and application.
+      </p>
+    </div>
+
+    <div class="row g-4 mt-2">
+      @for (cat of categories(); track cat.title) {
+        <div class="col-sm-6 col-lg-4">
+          <article class="product-card" [attr.aria-label]="cat.title + ' tile category'">
+            <div class="card-img-wrapper">
+              <img
+                [src]="cat.imgUrl"
+                [alt]="cat.title + ' tiles by Royal Tile World'"
+                loading="lazy"
+                width="400"
+                height="240"
+              />
+              @if (cat.badge) {
+                <span class="card-badge" aria-label="Badge: {{ cat.badge }}">{{ cat.badge }}</span>
+              }
+            </div>
+            <div class="card-body">
+              <div class="card-icon" aria-hidden="true">
+                <i [class]="'bi ' + cat.icon"></i>
+              </div>
+              <h3 class="card-title">{{ cat.title }}</h3>
+              <p class="card-description">{{ cat.description }}</p>
+              <a href="#contact" class="card-cta" [attr.aria-label]="'Enquire about ' + cat.title">
+                Enquire Now <i class="bi bi-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+        </div>
+      }
+    </div>
+
+    <div class="text-center mt-5">
+      <a href="#contact" class="btn-gold" aria-label="View full catalogue">
+        <i class="bi bi-collection" aria-hidden="true"></i> Request Full Catalogue
+      </a>
+    </div>
+  </div>
+</section>
+

@@ -1,0 +1,112 @@
+<footer class="footer" role="contentinfo" aria-label="Site footer">
+  <!-- Main Footer Content -->
+  <div class="footer-main">
+    <div class="container">
+      <div class="row g-5">
+        <!-- Brand Column -->
+        <div class="col-lg-4 col-md-12">
+          <div class="footer-brand">
+            <a href="#home" class="brand-link" aria-label="Royal Tile World – return to top">
+              <span class="brand-icon" aria-hidden="true"><i class="bi bi-hexagon-fill"></i></span>
+              <span class="brand-name">Royal Tile World</span>
+            </a>
+            <p class="brand-description">
+              Your trusted destination for premium ceramic, porcelain, vitrified,
+              and natural stone tiles. Transforming spaces with elegance since 2010.
+            </p>
+            <!-- Social Links -->
+            <div class="social-links" role="list" aria-label="Social media links">
+              @for (social of socialLinks(); track social.label) {
+                <a
+                  [href]="social.url"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="social-link"
+                  role="listitem"
+                  [attr.aria-label]="'Follow us on ' + social.label + ' (opens in new tab)'"
+                >
+                  <i [class]="'bi ' + social.icon" aria-hidden="true"></i>
+                </a>
+              }
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-lg-2 col-sm-6">
+          <h3 class="footer-heading">Quick Links</h3>
+          <ul class="footer-links" role="list">
+            @for (link of quickLinks(); track link.anchor) {
+              <li role="listitem">
+                <a [href]="link.anchor" class="footer-link">
+                  <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                  {{ link.label }}
+                </a>
+              </li>
+            }
+          </ul>
+        </div>
+
+        <!-- Categories -->
+        <div class="col-lg-3 col-sm-6">
+          <h3 class="footer-heading">Our Collections</h3>
+          <ul class="footer-links" role="list">
+            @for (cat of categories(); track cat) {
+              <li role="listitem">
+                <a href="#products" class="footer-link">
+                  <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                  {{ cat }}
+                </a>
+              </li>
+            }
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="col-lg-3 col-md-12">
+          <h3 class="footer-heading">Contact Info</h3>
+          <address class="footer-contact">
+            <p class="contact-item">
+              <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+              <span>123 Tile Market, Industrial Area,<br>Ahmedabad, Gujarat – 380001</span>
+            </p>
+            <p class="contact-item">
+              <i class="bi bi-telephone-fill" aria-hidden="true"></i>
+              <a href="tel:+919876543210" class="footer-contact-link">+91 98765 43210</a>
+            </p>
+            <p class="contact-item">
+              <i class="bi bi-envelope-fill" aria-hidden="true"></i>
+              <a href="mailto:info@royaltileworld.com" class="footer-contact-link">info&#64;royaltileworld.com</a>
+            </p>
+            <p class="contact-item">
+              <i class="bi bi-clock-fill" aria-hidden="true"></i>
+              <span>Mon – Sat: 9 AM – 7 PM</span>
+            </p>
+          </address>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Bottom Bar -->
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bottom-inner">
+        <p class="copyright">
+          &copy; {{ currentYear() }} Royal Tile World. All rights reserved.
+        </p>
+        <p class="attribution">
+          Designed &amp; Developed by
+          <a
+            href="https://ambikainfotech.online/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="attribution-link"
+            aria-label="Ambika Infotech – website design and development company (opens in new tab)"
+          >Ambika Infotech</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
