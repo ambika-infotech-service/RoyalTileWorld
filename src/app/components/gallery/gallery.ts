@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { AnimateOnScroll } from '../../directives/animate-on-scroll';
 
 interface GalleryItem {
   imgUrl: string;
@@ -8,7 +9,7 @@ interface GalleryItem {
 
 @Component({
   selector: 'app-gallery',
-  imports: [],
+  imports: [AnimateOnScroll],
   templateUrl: './gallery.html',
   styleUrl: './gallery.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

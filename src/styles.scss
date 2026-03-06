@@ -77,3 +77,31 @@ img { max-width: 100%; height: auto; }
   line-height: $line-height-relaxed;
 }
 
+// ─── Scroll-triggered entrance animations (AOS) ───────────────────────────────
+.aos-init {
+  opacity: 0;
+  transition-property: opacity, transform;
+  transition-duration: 0.65s;
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-delay: var(--aos-delay, 0ms);
+
+  &.aos-fade-up    { transform: translateY(32px); }
+  &.aos-fade-down  { transform: translateY(-20px); }
+  &.aos-fade-left  { transform: translateX(-32px); }
+  &.aos-fade-right { transform: translateX(32px); }
+  &.aos-scale-in   { transform: scale(0.88); }
+
+  &.aos-animate {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aos-init {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+

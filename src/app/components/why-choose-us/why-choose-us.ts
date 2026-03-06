@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { AnimateOnScroll } from '../../directives/animate-on-scroll';
 
 interface Feature {
   icon: string;
@@ -8,7 +9,7 @@ interface Feature {
 
 @Component({
   selector: 'app-why-choose-us',
-  imports: [],
+  imports: [AnimateOnScroll],
   templateUrl: './why-choose-us.html',
   styleUrl: './why-choose-us.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

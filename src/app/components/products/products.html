@@ -1,6 +1,6 @@
 <section id="products" class="products-section" aria-labelledby="products-heading">
   <div class="container">
-    <div class="section-header text-center">
+    <div class="section-header text-center" appAnimateOnScroll>
       <p class="section-eyebrow">Our Collections</p>
       <h2 id="products-heading" class="section-title">Premium Tile Categories</h2>
       <div class="gold-divider mx-auto" aria-hidden="true"></div>
@@ -11,8 +11,8 @@
     </div>
 
     <div class="row g-4 mt-2">
-      @for (cat of categories(); track cat.title) {
-        <div class="col-sm-6 col-lg-4">
+      @for (cat of categories(); track cat.title; let i = $index) {
+        <div class="col-sm-6 col-lg-4" appAnimateOnScroll [animationDelay]="i * 80">
           <article class="product-card" [attr.aria-label]="cat.title + ' tile category'">
             <div class="card-img-wrapper">
               <img
@@ -41,7 +41,7 @@
       }
     </div>
 
-    <div class="text-center mt-5">
+    <div class="text-center mt-5" appAnimateOnScroll>
       <a href="#contact" class="btn-gold" aria-label="View full catalogue">
         <i class="bi bi-collection" aria-hidden="true"></i> Request Full Catalogue
       </a>

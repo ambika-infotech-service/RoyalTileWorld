@@ -169,3 +169,26 @@
   0%, 100% { transform: translateX(-50%) translateY(0); }
   50%       { transform: translateX(-50%) translateY(9px); }
 }
+
+// ─── Hero entrance animations ─────────────────────────────────────────────────
+@keyframes heroFadeDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.hero-eyebrow     { animation: heroFadeDown 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.15s both; }
+.hero-title       { animation: heroFadeUp   0.70s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.35s both; }
+.hero-description { animation: heroFadeUp   0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.55s both; }
+.hero-actions     { animation: heroFadeUp   0.60s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.72s both; }
+.hero-stats       { animation: heroFadeUp   0.60s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.90s both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-eyebrow, .hero-title, .hero-description, .hero-actions, .hero-stats {
+    animation: none;
+  }
+}

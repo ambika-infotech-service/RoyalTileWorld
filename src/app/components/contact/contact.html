@@ -1,6 +1,6 @@
 <section id="contact" class="contact-section" aria-labelledby="contact-heading">
   <div class="container">
-    <div class="section-header text-center">
+    <div class="section-header text-center" appAnimateOnScroll>
       <p class="section-eyebrow">Get In Touch</p>
       <h2 id="contact-heading" class="section-title">Contact Royal Tile World</h2>
       <div class="gold-divider mx-auto" aria-hidden="true"></div>
@@ -12,7 +12,7 @@
 
     <div class="row g-5 mt-2 align-items-start">
       <!-- Info Cards -->
-      <div class="col-lg-4">
+      <div class="col-lg-4" appAnimateOnScroll [animation]="'fade-right'">
         <div class="info-cards">
           <div class="info-card" aria-label="Address">
             <div class="info-icon" aria-hidden="true">
@@ -59,7 +59,7 @@
       </div>
 
       <!-- Contact Form -->
-      <div class="col-lg-8">
+      <div class="col-lg-8" appAnimateOnScroll [animation]="'fade-left'">
         <div class="form-card">
           @if (submitSuccess()) {
             <div class="success-message" role="alert" aria-live="polite">

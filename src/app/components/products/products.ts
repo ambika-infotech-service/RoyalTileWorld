@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { AnimateOnScroll } from '../../directives/animate-on-scroll';
 
 interface ProductCategory {
   icon: string;
@@ -10,7 +11,7 @@ interface ProductCategory {
 
 @Component({
   selector: 'app-products',
-  imports: [],
+  imports: [AnimateOnScroll],
   templateUrl: './products.html',
   styleUrl: './products.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

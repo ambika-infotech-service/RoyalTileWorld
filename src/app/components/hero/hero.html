@@ -30,20 +30,15 @@
           </a>
         </div>
         <div class="hero-stats" role="list" aria-label="Business highlights">
-          <div class="stat" role="listitem">
-            <span class="stat-number">500+</span>
-            <span class="stat-label">Tile Designs</span>
-          </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div class="stat" role="listitem">
-            <span class="stat-number">15+</span>
-            <span class="stat-label">Years Experience</span>
-          </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div class="stat" role="listitem">
-            <span class="stat-number">1000+</span>
-            <span class="stat-label">Happy Clients</span>
-          </div>
+          @for (stat of stats; track stat.label; let last = $last) {
+            <div class="stat" role="listitem">
+              <span class="stat-number">{{ stat.display() }}{{ stat.suffix }}</span>
+              <span class="stat-label">{{ stat.label }}</span>
+            </div>
+            @if (!last) {
+              <div class="stat-divider" aria-hidden="true"></div>
+            }
+          }
         </div>
       </div>
     </div>

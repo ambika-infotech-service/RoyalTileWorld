@@ -1,6 +1,6 @@
 <section id="gallery" class="gallery-section" aria-labelledby="gallery-heading">
   <div class="container">
-    <div class="section-header text-center">
+    <div class="section-header text-center" appAnimateOnScroll>
       <p class="section-eyebrow">Inspiration</p>
       <h2 id="gallery-heading" class="section-title">Our Showcase Gallery</h2>
       <div class="gold-divider mx-auto" aria-hidden="true"></div>
@@ -11,8 +11,8 @@
     </div>
 
     <div class="gallery-grid mt-4" role="list" aria-label="Gallery of tile installations">
-      @for (item of items(); track item.title) {
-        <article class="gallery-item" role="listitem" [attr.aria-label]="item.title + ' - ' + item.category">
+      @for (item of items(); track item.title; let i = $index) {
+        <article class="gallery-item" role="listitem" [attr.aria-label]="item.title + ' - ' + item.category" appAnimateOnScroll [animationDelay]="i * 60">
           <img
             [src]="item.imgUrl"
             [alt]="item.title + ' tile installation in ' + item.category"
